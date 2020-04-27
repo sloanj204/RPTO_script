@@ -28,8 +28,8 @@ def load_input():
                     date_table[count] = i
                 count += 1
 
-            for i in date_table:
-                print(i, ":", date_table[i])
+            # for i in date_table:
+            #     print(i, ":", date_table[i])
 
             print
             # print("alpa test")
@@ -40,7 +40,7 @@ def load_input():
 
 # process output file
 def load_output():
-    print("loading output")
+    # print("loading output")
     try:
         with open(output_file, 'w', newline="") as resultFile:
             wr = csv.writer(resultFile, delimiter=',')
@@ -48,25 +48,28 @@ def load_output():
             wr.writerow(header["2"])
             for row in output_array:
                 wr.writerows([row])
+            print("File written to output.csv.")
+            print("PROCESS COMPLETE!")
     except:
         input("Output file generation failure. Press Ctrl+C to quit.")
 
 # process RPTO stuff
 def process_me():
-    print("Processing Date... beep boop beep")
+    print("Processing... beep boop beep")
 
     for row in input_array:
         count = 0
         for i in row:
-            print("i:",i)
+            # print("i:",i)
             if i == "1":
-                print("appending a 1")
+                # print("appending a 1")
                 output_array.append(["",row[0], "FALSE", "", "", "", "RTO", date_table[count], date_table[count], "APPROVED", "1", "8", "","","8","TRUE","","","","","FALSE","8","","FALSE","","No_selection"])
             elif i == "0.5":
-                print("appending a 0.5")
+                # print("appending a 0.5")
                 output_array.append(["",row[0],  "FALSE", "", "", "", "RTO", date_table[count], date_table[count], "APPROVED","0.5", "4", "","","4","TRUE","","","","","FALSE","4","","FALSE","","No_selection"])
             else:
-                print("print nothing")
+                # print("print nothing")
+                pass
             count += 1
 
 
